@@ -1,17 +1,22 @@
 # About
+
 This is a web based realtime weather app. Thanks to open weather api for providing the realtime weather data.
 
 # Getting Started
+
 You can checkout a demo straight into your browser just [`click here`](https://himanshu12345yadav.github.io/Weather-App/).
 
 Wanna download into your system, feel free to do so. First clone the repository in your system.
+
+**_Note that to use the application in your system first, get the API key from [`openweatherapi`](https://openweathermap.org/) and put that API_KEY in place of `YOUR_API_KEY` present inside the weatherApp.js file which is present in the project directory._**
 
 ```bash
 git clone https://github.com/himanshu12345yadav/Weather-App.git
 cd Weather-App
 ```
 
-# System requirements 
+# System requirements
+
 To run the app succesfully you must have npm installed in your system which is shipped along with [`click here to download node js`](https://nodejs.org/en/).
 
 To install the dependencies, you can run :
