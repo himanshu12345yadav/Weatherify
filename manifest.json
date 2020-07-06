@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Weatherify",
+  "name": "Weatherify - A Fast, Light weight weather app",
   "icons": [
     {
       "src": "favicon.ico",
