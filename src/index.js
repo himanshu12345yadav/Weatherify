@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Weather from './weatherApp';
-import './weatherApp.css';
+import App from './app';
+import './components/weatherApp.css';
+import './components/spinner.css';
 
-ReactDOM.render(<Weather />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
