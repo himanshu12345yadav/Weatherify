@@ -1,17 +1,17 @@
 # About
 
-This is a web based realtime weather app. Thanks to open weather api for providing the realtime weather data.
+Weatherify is a web based realtime weather app. Thanks to Open Weather API for providing the realtime weather data.
 
 # Getting Started
 
-You can checkout a demo straight into your browser just [`click here`](https://himanshu12345yadav.github.io/Weather-App/).
+You can checkout a demo straight into your browser just [`click here`](https://himanshu12345yadav.github.io/Weatherify/).
 
 Wanna download into your system, feel free to do so. First clone the repository in your system.
 
-**_Note that to use the application in your system first, get the API key from [`openweatherapi`](https://openweathermap.org/) and put that API_KEY in place of `YOUR_API_KEY` present inside the weatherApp.js file which is present in the project directory._**
+**_Note that to use the application in your system first, get the API key from [`openweatherapi`](https://openweathermap.org/) and put that API_KEY in place of `YOUR_API_KEY_HERE` present inside the weatherApp.js file which is present in the project directory._**
 
 ```bash
-git clone https://github.com/himanshu12345yadav/Weather-App.git
+git clone https://github.com/himanshu12345yadav/Weatherify.git
 cd Weather-App
 ```
 

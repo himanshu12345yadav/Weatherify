@@ -41,11 +41,11 @@ header {
 }
 .weather-btn {
   font-size: 1rem;
-  padding: .8rem;
+  padding: 0.8rem;
   border-radius: 3px;
   border: 3px solid var(--theme);
   background-color: transparent;
-  color:var(--white);
+  color: var(--white);
   outline: none;
   transition: all 0.2s ease-in;
 }
@@ -253,9 +253,8 @@ footer i {
   }
 }
 @media screen and (max-width: 768px) {
-  
   header {
-    width:100%;
+    width: 100%;
   }
   .input-fields input {
     font-size: 1.1rem;
@@ -305,17 +304,17 @@ footer i {
     justify-content: space-evenly;
     height: 300px;
   }
-  
+
   .input-fields input {
     font-size: 1.4rem;
   }
   .input-fields:focus-within input + label,
-.input-fields input:not(:placeholder-shown) + label {
-  color: var(--theme);
-  font-size: 1rem;
-  transform: translateY(-1.8rem);
-  transition: transform 0.3s ease-in, font-size 0.3s ease-in;
-}
+  .input-fields input:not(:placeholder-shown) + label {
+    color: var(--theme);
+    font-size: 1rem;
+    transform: translateY(-1.8rem);
+    transition: transform 0.3s ease-in, font-size 0.3s ease-in;
+  }
 
   .weather-btn {
     width: 40%;

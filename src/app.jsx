@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Weather from "./components/weatherApp";
+import Weather from "./components/Main";
 import Spinner from "./components/spinner";
 
 const App = () => {
