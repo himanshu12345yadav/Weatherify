@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/Weather-App/static/css/main.6b60bf90.chunk.css",
-    "main.js": "/Weather-App/static/js/main.4ab3b941.chunk.js",
-    "main.js.map": "/Weather-App/static/js/main.4ab3b941.chunk.js.map",
-    "runtime-main.js": "/Weather-App/static/js/runtime-main.696f3972.js",
-    "runtime-main.js.map": "/Weather-App/static/js/runtime-main.696f3972.js.map",
-    "static/js/2.84a569f7.chunk.js": "/Weather-App/static/js/2.84a569f7.chunk.js",
-    "static/js/2.84a569f7.chunk.js.map": "/Weather-App/static/js/2.84a569f7.chunk.js.map",
-    "index.html": "/Weather-App/index.html",
-    "precache-manifest.f927bae56dd8aa98204dce82595d2c8e.js": "/Weather-App/precache-manifest.f927bae56dd8aa98204dce82595d2c8e.js",
-    "service-worker.js": "/Weather-App/service-worker.js",
-    "static/css/main.6b60bf90.chunk.css.map": "/Weather-App/static/css/main.6b60bf90.chunk.css.map",
-    "static/js/2.84a569f7.chunk.js.LICENSE.txt": "/Weather-App/static/js/2.84a569f7.chunk.js.LICENSE.txt",
-    "static/media/logo.png": "/Weather-App/static/media/logo.259ad87e.png"
+    "main.css": "/Weatherify/static/css/main.0b57fea9.chunk.css",
+    "main.js": "/Weatherify/static/js/main.f3249def.chunk.js",
+    "main.js.map": "/Weatherify/static/js/main.f3249def.chunk.js.map",
+    "runtime-main.js": "/Weatherify/static/js/runtime-main.9cef0e33.js",
+    "runtime-main.js.map": "/Weatherify/static/js/runtime-main.9cef0e33.js.map",
+    "static/js/2.fd013403.chunk.js": "/Weatherify/static/js/2.fd013403.chunk.js",
+    "static/js/2.fd013403.chunk.js.map": "/Weatherify/static/js/2.fd013403.chunk.js.map",
+    "index.html": "/Weatherify/index.html",
+    "precache-manifest.49bcf65b5df13e269883ab83d4180ec7.js": "/Weatherify/precache-manifest.49bcf65b5df13e269883ab83d4180ec7.js",
+    "service-worker.js": "/Weatherify/service-worker.js",
+    "static/css/main.0b57fea9.chunk.css.map": "/Weatherify/static/css/main.0b57fea9.chunk.css.map",
+    "static/js/2.fd013403.chunk.js.LICENSE.txt": "/Weatherify/static/js/2.fd013403.chunk.js.LICENSE.txt",
+    "static/media/logo.png": "/Weatherify/static/media/logo.259ad87e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.696f3972.js",
-    "static/js/2.84a569f7.chunk.js",
-    "static/css/main.6b60bf90.chunk.css",
-    "static/js/main.4ab3b941.chunk.js"
+    "static/js/runtime-main.9cef0e33.js",
+    "static/js/2.fd013403.chunk.js",
+    "static/css/main.0b57fea9.chunk.css",
+    "static/js/main.f3249def.chunk.js"
   ]
 }
