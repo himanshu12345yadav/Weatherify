@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Weatherify/static/css/main.0b57fea9.chunk.css",
-    "main.js": "/Weatherify/static/js/main.f3249def.chunk.js",
-    "main.js.map": "/Weatherify/static/js/main.f3249def.chunk.js.map",
+    "main.js": "/Weatherify/static/js/main.6050f592.chunk.js",
+    "main.js.map": "/Weatherify/static/js/main.6050f592.chunk.js.map",
     "runtime-main.js": "/Weatherify/static/js/runtime-main.9cef0e33.js",
     "runtime-main.js.map": "/Weatherify/static/js/runtime-main.9cef0e33.js.map",
     "static/js/2.fd013403.chunk.js": "/Weatherify/static/js/2.fd013403.chunk.js",
     "static/js/2.fd013403.chunk.js.map": "/Weatherify/static/js/2.fd013403.chunk.js.map",
     "index.html": "/Weatherify/index.html",
-    "precache-manifest.49bcf65b5df13e269883ab83d4180ec7.js": "/Weatherify/precache-manifest.49bcf65b5df13e269883ab83d4180ec7.js",
+    "precache-manifest.32838d3178fddd7891953260f51f5c88.js": "/Weatherify/precache-manifest.32838d3178fddd7891953260f51f5c88.js",
     "service-worker.js": "/Weatherify/service-worker.js",
     "static/css/main.0b57fea9.chunk.css.map": "/Weatherify/static/css/main.0b57fea9.chunk.css.map",
     "static/js/2.fd013403.chunk.js.LICENSE.txt": "/Weatherify/static/js/2.fd013403.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.9cef0e33.js",
     "static/js/2.fd013403.chunk.js",
     "static/css/main.0b57fea9.chunk.css",
-    "static/js/main.f3249def.chunk.js"
+    "static/js/main.6050f592.chunk.js"
   ]
 }
