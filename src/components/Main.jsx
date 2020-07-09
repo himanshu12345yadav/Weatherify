@@ -7,7 +7,7 @@ class Weather extends Component {
     humidity: "~",
     wind_speed: "~",
     description: "~",
-    icon: `http://openweathermap.org/img/wn/10d@2x.png`,
+    icon: `https://openweathermap.org/img/wn/10d@2x.png`,
     wind_icon: "wi-wind-beaufort-0",
     location: "~",
     city: "",
@@ -37,7 +37,7 @@ class Weather extends Component {
             wind_speed: windSpeed,
             description: weatherDescription,
             wind_icon: `wi-wind-beaufort-${wind_speed}`,
-            icon: `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`,
+            icon: `https://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`,
             location: `${city}, ${country}`,
             isLoading: false,
           });
