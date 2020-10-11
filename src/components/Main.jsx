@@ -1,158 +1,227 @@
-import React, { Component } from "react";
-import Logo from "../logo.png";
-import { Loader } from "./spinner";
+import React, { Component } from 'react';
+import Logo from '../logo.png';
+import Loader from './spinner';
+import weatherIcons from '../assets/iconsMapping.json';
+import ErrorModal from './errorModal';
+import Callout from './callout';
+
 class Weather extends Component {
-  state = {
-    temp: "~",
-    humidity: "~",
-    wind_speed: "~",
-    description: "~",
-    icon: `https://openweathermap.org/img/wn/10d@2x.png`,
-    wind_icon: "wi-wind-beaufort-0",
-    location: "~",
-    city: "",
-    country: "",
-    isLoading: false,
-  };
-  showWeather = () => {
-    const API_KEY = 'YOUR_API_KEY_HERE';
-    this.setState({ isLoading: true });
-    let city = document.getElementById("city").value;
-    let country = document.getElementById("country").value;
-    const url = `https://openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`;
-    if (city === "" || country === "") {
-      alert("Please enter a valid Location :(");
-    } else {
-      fetch(url)
-        .then((req) => req.json())
-        .then((res) => {
-          const Temp = res.main.temp;
-          const humidity = res.main.humidity;
-          const windSpeed = (res.wind.speed * 3.6).toFixed(1);
-          const weatherDescription = res.weather[0].main.toLowerCase();
-          const wind_speed = Math.round(res.wind.speed * 3.6);
-          this.setState({
-            temp: Temp,
-            humidity: humidity,
-            wind_speed: windSpeed,
-            description: weatherDescription,
-            wind_icon: `wi-wind-beaufort-${wind_speed}`,
-            icon: `https://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`,
-            location: `${city}, ${country}`,
-            isLoading: false,
-          });
-          this.clearInput();
-        })
-        .catch((error) => {
-          alert(
-            "Something went wrong :) please check your details and try again"
-          );
-          this.clearInput("clear_both");
-          this.setState({isLoading: false});
+    constructor(props) {
+        super(props);
+        this.closeModal = this.closeModal.bind(this);
+        this.handleCallout = this.closeCallout.bind(this);
+    }
+    closeModal = () => {
+        this.setState({ isErrorOccured: false });
+    };
+    closeCallout = () => {
+        this.setState({
+            isCallout: false,
         });
+    };
+    state = {
+        temp: '',
+        min_temp: '',
+        max_temp: '',
+        feels_like: '',
+        description: '',
+        icon: ``,
+        location: '',
+        date: '',
+        city: '',
+        country: '',
+        isLoading: false,
+        isCallout: true,
+        errorCause: '',
+        isErrorOccured: false,
+    };
+    componentDidMount = () => {
+        let inputField = document.getElementById('city');
+        inputField.addEventListener('keyup', (event) => {
+            if (event.code === 'Enter') {
+                this.showWeather();
+                inputField.blur();
+            }
+        });
+    };
+    showWeather = () => {
+        const API_KEY = 'YOUR_API_KEY_HERE';
+        let city = document.getElementById('city').value;
+        const url = `https://openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+        if (this.state.isCallout) {
+            this.closeCallout();
+        }
+        if (city === '') {
+            this.setState({
+                isErrorOccured: true,
+                errorCause: 'emptyCountry',
+            });
+        } else {
+            this.setState({ isLoading: true });
+            fetch(url)
+                .then((req) => req.json())
+                .then((res) => {
+                    var prefix = 'wi wi-';
+                    var code = res.weather[0].id;
+                    var icon = weatherIcons[code].icon;
+                    if (
+                        !(code > 699 && code < 800) &&
+                        !(code > 899 && code < 1000)
+                    ) {
+                        icon = 'day-' + icon;
+                    }
+                    icon = prefix + icon;
+                    const Temp = Math.round(res.main.temp);
+                    const min_temp = Math.round(res.main.temp_min);
+                    const max_temp = Math.round(res.main.temp_max);
+                    const feels_like = Math.round(res.main.feels_like);
+                    const humidity = res.main.humidity;
+                    const weatherDescription = res.weather[0].main.toLowerCase();
+                    const windSpeed = Math.round(res.wind.speed * 3.6);
+                    this.setState({
+                        temp: Temp,
+                        min_temp: min_temp,
+                        max_temp: max_temp,
+                        feels_like: feels_like,
+                        humidity: humidity,
+                        wind_speed: windSpeed,
+                        description: weatherDescription,
+                        icon: `${icon}`,
+                        location: `${city}, ${res.sys.country}`,
+                        isLoading: false,
+                        date: this.setDate(),
+                    });
+                    this.clearInput();
+                    this.handleCover();
+                    this.setDate();
+                    if (document.querySelectorAll('.hidden')) {
+                        document.querySelectorAll('.hidden').forEach((item) => {
+                            item.classList.remove('hidden');
+                        });
+                    }
+                })
+                .catch(() => {
+                    this.setState({
+                        isErrorOccured: true,
+                        errorCause: 'wrongCountry',
+                    });
+                    this.clearInput();
+                    this.setState({ isLoading: false });
+                });
+        }
+    };
+    clearInput = () => {
+        document.getElementById('city').value = '';
+    };
+    handleCover = () => {
+        if (this.state.description === 'haze') {
+            document.body.removeAttribute('class');
+            document.body.classList.add('cover--hot');
+        }
+        if (
+            this.state.description === 'rain' ||
+            this.state.description === 'clouds'
+        ) {
+            document.body.removeAttribute('class');
+            document.body.classList.add('cover--rainy');
+        }
+        if (this.state.description === 'clear') {
+            document.body.removeAttribute('class');
+            document.body.classList.add('cover--beautifulNight');
+        }
+    };
+    setDate = () => {
+        let date = new Date();
+        const options = {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric',
+        };
+        return date.toLocaleDateString('en-US', options);
+    };
+    render() {
+        return (
+            <>
+                <div className="brand">
+                    <img src={Logo} alt="brand_icon" />
+                    <div className="search">
+                        <input
+                            type="text"
+                            id="city"
+                            required
+                            className="search-input"
+                            placeholder="City Name"
+                        />
+                        <div className="search-icon-wrapper">
+                            <span className="material-icons">search</span>
+                        </div>
+                    </div>
+                    {this.state.isCallout ? (
+                        <Callout closeCallout={this.closeCallout} />
+                    ) : null}
+                </div>
+                {this.state.isLoading ? <Loader /> : null}
+                <div className="weather-icon">
+                    <i className={`${this.state.icon}`} alt="Weather Icon"></i>
+                    <div className="feels-like hidden">
+                        feels like {this.state.feels_like}{' '}
+                        <sup className="hidden">&deg;</sup>{' '}
+                    </div>
+                    <div className="wind-speed">
+                        <i
+                            className={`hidden wind-speed-icon wi wi-sandstorm`}
+                        ></i>
+                        {this.state.wind_speed}{' '}
+                        <span className="hidden units">km/h</span>
+                    </div>
+                    <div className="humidity">
+                        <i
+                            className={`hidden humidity-icon wi wi-humidity`}
+                        ></i>
+                        {this.state.humidity}{' '}
+                        <span className="hidden units">%</span>
+                    </div>
+                </div>
+                <div className="weather-details">
+                    <div className="location">{this.state.location}</div>
+                    <div className="date">{this.state.date}</div>
+                    <div className="weather-description">
+                        {this.state.description}
+                    </div>
+                    <div className="temp">
+                        <div className="temp-value">
+                            {this.state.temp}{' '}
+                            <sup className="small hidden">&#8451;</sup>
+                        </div>
+                        <div className="additional-temp">
+                            <div className="max_temp">
+                                <span className="uparrow hidden"></span>
+                                <span className="max-temp">
+                                    {this.state.max_temp}{' '}
+                                    <sup className="hidden">&deg;</sup>
+                                </span>
+                            </div>
+                            <div className="min_temp">
+                                <span className="downarrow hidden"></span>
+                                <span className="min-temp">
+                                    {this.state.min_temp}{' '}
+                                    <sup className="hidden">&deg;</sup>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {this.state.isErrorOccured ? (
+                    <ErrorModal
+                        closeModal={this.closeModal}
+                        errorCause={this.state.errorCause}
+                    />
+                ) : null}
+                <footer>
+                    <span>Made with &#9829; by Himanshu Yadav</span>
+                </footer>
+            </>
+        );
     }
-  };
-  clearInput = (item) => {
-    if (item === "city") {
-      document.getElementById("city").value = "";
-    } else if (item === "country") {
-      document.getElementById("country").value = "";
-    } else {
-      document.getElementById("city").value = "";
-      document.getElementById("country").value = "";
-    }
-  };
-
-  render() {
-    return (
-      <>
-        <div className="brand">
-          <img src={Logo} alt="brand_icon" />
-        </div>
-        <header>
-          <div className="input-fields">
-            <input
-              type="text"
-              id="city"
-              required
-              title="Enter your city name"
-              placeholder="City"
-            />
-            <label htmlFor="city">City</label>
-            <i
-              className="fa fa-times clear-btn"
-              onClick={this.clearInput.bind(this, "city")}
-            ></i>
-          </div>
-          <div className="input-fields">
-            <input
-              type="text"
-              id="country"
-              required
-              title="Enter your country name"
-              placeholder="Country"
-            />
-            <label htmlFor="country">Country</label>
-            <i
-              className="fa fa-times clear-btn"
-              onClick={this.clearInput.bind(this, "country")}
-            ></i>
-          </div>
-          <button
-            className="weather-btn"
-            type="submit"
-            onClick={this.showWeather}
-          >
-            Show Weather
-          </button>
-        </header>
-
-        {this.state.isLoading ? <Loader /> : null}
-        <div className="weather-details">
-          <div className="location">{this.state.location}</div>
-          <div className="weather-icon">
-            <img src={this.state.icon} alt="Weather Icon" />
-          </div>
-          <div className="temp">
-            <div className="temp-icon">
-              <i className="wi wi-thermometer"></i>
-            </div>
-            <div className="temp-value" style={{ color: "var(--theme)" }}>
-              {this.state.temp} &#8451;
-            </div>
-          </div>
-
-          <div className="wind-speed-humidity">
-            <div className="wind-speed">
-              <i className={`wi ${this.state.wind_icon} wind-speed-icon`}></i>
-              <div
-                className="wind-speed-value"
-                style={{ color: "var(--theme)" }}
-              >
-                {this.state.wind_speed} km/h
-              </div>
-            </div>
-            <div className="humidity">
-              <i className="wi wi-humidity"></i>
-              <div className="humidity-value" style={{ color: "var(--theme)" }}>
-                {this.state.humidity}%
-              </div>
-            </div>
-          </div>
-          <div
-            className="weather-description"
-            style={{ color: "var(--theme)" }}
-          >
-            {this.state.description}
-          </div>
-        </div>
-        <footer>
-          <span>
-            Made with <i className="fa fa-heart fab"></i> by Himanshu Yadav
-          </span>
-        </footer>
-      </>
-    );
-  }
 }
 export default Weather;

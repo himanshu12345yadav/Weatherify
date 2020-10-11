@@ -1,0 +1,73 @@
+.callout-wrapper {
+    position: fixed;
+    right: 15%;
+    top: 10%;
+    animation: move 2s infinite alternate ease-in-out;
+}
+.callout {
+    position: absolute;
+    height: 110px;
+    width: 200px;
+    padding: 200px;
+    background-color: #2b7bc7;
+    position: relative;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 25px;
+    min-height: 50px;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
+
+.callout::before {
+    content: '';
+    width: 0px;
+    height: 0px;
+    border: 0.8em solid transparent;
+    position: absolute;
+}
+
+.callout.top::before {
+    left: 45%;
+    top: -20px;
+    border-bottom: 10px solid #2b7bc7;
+}
+.close-callout {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    padding-bottom: 20px;
+    background-color: transparent;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 500;
+    border: 0;
+    outline: 0;
+    right: 20%;
+    bottom: 20%;
+}
+.close-callout:hover {
+    cursor: pointer;
+}
+@keyframes move {
+    from {
+        transform: translateY(-5px);
+    }
+    to {
+        transform: translateY(5px);
+    }
+}
+@media screen and (max-width: 576px) {
+    .callout-wrapper {
+        position: fixed;
+        right: 0%;
+        bottom: 20%;
+    }
+    .close-callout {
+        position: absolute;
+        bottom: 0;
+        right: 10%;
+    }
+}
