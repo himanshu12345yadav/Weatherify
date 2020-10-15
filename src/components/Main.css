@@ -11,10 +11,10 @@
 }
 body {
     background: url(../assets/beautifulNight.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: all 0.3s ease-in-out;
-    background-position: center center;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    transition: background 1s ease-in-out;
 }
 html,
 body {
@@ -76,7 +76,7 @@ body {
     color: black;
     padding: 0 80px 0 20px;
     border-radius: 30px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     transition: all 0.8s;
     opacity: 0;
     z-index: 5;
@@ -127,27 +127,14 @@ body {
     place-items: center;
     position: relative;
 }
-
 .cover--hot {
     background: url(../assets/hot.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: all 0.4s ease-in-out;
-    background-position: center center;
 }
 .cover--rainy {
     background: url(../assets/rainy.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: all 0.4s ease-in-out;
-    background-position: center center;
 }
 .cover-beautifulNight {
     background: url(../assets/beautifulNight.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: all 0.4s ease-in-out;
-    background-position: center center;
 }
 .brand {
     width: 100%;

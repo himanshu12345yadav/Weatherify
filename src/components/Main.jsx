@@ -9,7 +9,7 @@ class Weather extends Component {
     constructor(props) {
         super(props);
         this.closeModal = this.closeModal.bind(this);
-        this.handleCallout = this.closeCallout.bind(this);
+        this.closeCallout = this.closeCallout.bind(this);
     }
     closeModal = () => {
         this.setState({ isErrorOccured: false });
@@ -39,6 +39,8 @@ class Weather extends Component {
         let inputField = document.getElementById('city');
         inputField.addEventListener('keyup', (event) => {
             if (event.code === 'Enter') {
+                event.preventDefault();
+                event.stopPropagation();
                 this.showWeather();
                 inputField.blur();
             }
@@ -114,19 +116,18 @@ class Weather extends Component {
         document.getElementById('city').value = '';
     };
     handleCover = () => {
-        if (this.state.description === 'haze') {
-            document.body.removeAttribute('class');
-            document.body.classList.add('cover--hot');
+        let active = document.body.classList[0];
+        if (active !== undefined) {
+            document.body.classList.remove(active);
         }
-        if (
+        if (this.state.description === 'haze') {
+            document.body.classList.add('cover--hot');
+        } else if (
             this.state.description === 'rain' ||
             this.state.description === 'clouds'
         ) {
-            document.body.removeAttribute('class');
             document.body.classList.add('cover--rainy');
-        }
-        if (this.state.description === 'clear') {
-            document.body.removeAttribute('class');
+        } else if (this.state.description === 'clear') {
             document.body.classList.add('cover--beautifulNight');
         }
     };
@@ -145,16 +146,25 @@ class Weather extends Component {
                 <div className="brand">
                     <img src={Logo} alt="brand_icon" />
                     <div className="search">
-                        <input
-                            type="text"
-                            id="city"
-                            required
-                            className="search-input"
-                            placeholder="City Name"
-                        />
-                        <div className="search-icon-wrapper">
-                            <span className="material-icons">search</span>
-                        </div>
+                        <form
+                            action="/"
+                            autoComplete="off"
+                            onSubmit={(event) => {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }}
+                        >
+                            <input
+                                type="text"
+                                id="city"
+                                required
+                                className="search-input"
+                                placeholder="City Name"
+                            />
+                            <div className="search-icon-wrapper">
+                                <span className="material-icons">search</span>
+                            </div>
+                        </form>
                     </div>
                     {this.state.isCallout ? (
                         <Callout closeCallout={this.closeCallout} />
