@@ -103,7 +103,6 @@
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
-
 .lds-hourglass {
     display: inline-block;
     position: relative;
@@ -140,6 +139,17 @@
     position: absolute;
     right: 50%;
     top: 15%;
+}
+@media screen and (max-width: 768px) {
+    .lds-hourglass:after {
+        border: 25px solid var(--theme);
+        border-color: var(--theme) transparent var(--theme) transparent;
+        animation: lds-hourglass 1.2s infinite;
+    }
+    .loader-wrapper {
+        right: 30%;
+        top: 13%;
+    }
 }
 @media screen and (max-width: 576px) {
     .lds-hourglass:after {
