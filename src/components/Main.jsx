@@ -38,7 +38,7 @@ class Weather extends Component {
     componentDidMount = () => {
         let inputField = document.getElementById('city');
         inputField.addEventListener('keyup', (event) => {
-            if (event.code === 'Enter') {
+            if (event.code === 'Enter' || event.key === 'Enter') {
                 event.preventDefault();
                 event.stopPropagation();
                 this.showWeather();
@@ -193,10 +193,12 @@ class Weather extends Component {
                     </div>
                 </div>
                 <div className="weather-details">
-                    <div className="location">{this.state.location}</div>
-                    <div className="date">{this.state.date}</div>
-                    <div className="weather-description">
-                        {this.state.description}
+                    <div className="main-info">
+                        <div className="location">{this.state.location}</div>
+                        <div className="date">{this.state.date}</div>
+                        <div className="weather-description">
+                            {this.state.description}
+                        </div>
                     </div>
                     <div className="temp">
                         <div className="temp-value">
