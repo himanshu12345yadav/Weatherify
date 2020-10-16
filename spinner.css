@@ -111,7 +111,7 @@
     height: 80px;
 }
 .lds-hourglass:after {
-    content: ' ';
+    content: '';
     display: block;
     border-radius: 50%;
     width: 0;
@@ -140,4 +140,15 @@
     position: absolute;
     right: 50%;
     top: 15%;
+}
+@media screen and (max-width: 576px) {
+    .lds-hourglass:after {
+        border: 20px solid var(--theme);
+        border-color: var(--theme) transparent var(--theme) transparent;
+        animation: lds-hourglass 1.2s infinite;
+    }
+    .loader-wrapper {
+        right: 40%;
+        top: 13%;
+    }
 }
