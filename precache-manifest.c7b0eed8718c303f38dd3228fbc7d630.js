@@ -1,22 +1,22 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aedfab7a1836e4a6b458487a48d186b8",
+    "revision": "06e1f14a25172fa65e562745c04a70be",
     "url": "/Weatherify/index.html"
   },
   {
-    "revision": "d4ae6d44b62f59debdb7",
-    "url": "/Weatherify/static/css/main.776fe5c5.chunk.css"
+    "revision": "ca367f31cf04ccc71b4e",
+    "url": "/Weatherify/static/css/main.6e78b792.chunk.css"
   },
   {
-    "revision": "7fe4e6b52addffde9534",
-    "url": "/Weatherify/static/js/2.5b819fcf.chunk.js"
+    "revision": "4484523d7bc71f20c3a2",
+    "url": "/Weatherify/static/js/2.ac1d30bb.chunk.js"
   },
   {
-    "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/Weatherify/static/js/2.5b819fcf.chunk.js.LICENSE.txt"
+    "revision": "570d362d673dab785e62d2b8563e1118",
+    "url": "/Weatherify/static/js/2.ac1d30bb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d4ae6d44b62f59debdb7",
+    "revision": "ca367f31cf04ccc71b4e",
     "url": "/Weatherify/static/js/main.1f1a2c2b.chunk.js"
   },
   {
