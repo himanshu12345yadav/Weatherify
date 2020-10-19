@@ -1,23 +1,21 @@
-# About
+# About Weatherify :partly_sunny:
 
-Weatherify is a web based realtime weather app. Thanks to Open Weather API for providing the realtime weather data.
+Weatherify is a web-based realtime weather app. Weatherify is built with great UI and a friendly user experience which makes it very easy to use. It is also responsive hence it adapts itself according to device display size.
 
-# Getting Started
+# Getting Started :white_check_mark:
 
-You can checkout a demo straight into your browser just [`click here`](https://himanshu12345yadav.github.io/Weatherify/).
+You can checkout Finished App straight into your browser, just [`click here`](https://himanshu12345yadav.github.io/Weatherify/).
 
-Wanna download into your system, feel free to do so. First clone the repository in your system.
-
-**_Note that to use the application in your system first, get the API key from [`openweatherapi`](https://openweathermap.org/) and put that API_KEY in place of `YOUR_API_KEY_HERE` present inside the weatherApp.js file which is present in the project directory._**
+**Note that to use `weatherify` in your system first, get a free API key from [`openweatherapi`](https://openweathermap.org/) and put that `API_KEY` in place of `YOUR_API_KEY_HERE` present inside the `main.jsx` file which is present in the project directory**
 
 ```bash
 git clone https://github.com/himanshu12345yadav/Weatherify.git
 cd Weather-App
 ```
 
-# System requirements
+# System requirements :computer:
 
-To run the app succesfully you must have npm installed in your system which is shipped along with [`click here to download node js`](https://nodejs.org/en/).
+To run the app successfully you must have npm installed in your system which is shipped along [`Node js`](https://nodejs.org/en/).
 
 To install the dependencies, you can run :
 
