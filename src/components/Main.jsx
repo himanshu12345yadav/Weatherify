@@ -4,12 +4,19 @@ import Loader from './spinner';
 import weatherIcons from '../assets/iconsMapping.json';
 import ErrorModal from './errorModal';
 import Callout from './callout';
+import beautifulNight from '../assets/beautifulNight.png';
+import hot from '../assets/hot.png';
+import rainy from '../assets/rainy.png';
 
 class Weather extends Component {
     constructor(props) {
         super(props);
         this.closeModal = this.closeModal.bind(this);
         this.closeCallout = this.closeCallout.bind(this);
+        this.ImageCache = [beautifulNight, hot, rainy];
+        this.ImageCache.forEach((image) => {
+            new Image().src = image;
+        });
     }
     closeModal = () => {
         this.setState({ isErrorOccured: false });
@@ -50,9 +57,6 @@ class Weather extends Component {
         const API_KEY = 'YOUR_API_KEY_HERE';
         let city = document.getElementById('city').value;
         const url = `https://openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
-        if (this.state.isCallout) {
-            this.closeCallout();
-        }
         if (city === '') {
             this.setState({
                 isErrorOccured: true,
@@ -160,6 +164,7 @@ class Weather extends Component {
                                 required
                                 className="search-input"
                                 placeholder="City Name"
+                                onFocus={this.closeCallout}
                             />
                             <div className="search-icon-wrapper">
                                 <span className="material-icons">search</span>

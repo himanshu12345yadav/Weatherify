@@ -73,13 +73,14 @@ body {
     outline: none;
     border: none;
     background: #fff;
-    color: black;
+    color: #111111;
     padding: 0 80px 0 20px;
     border-radius: 30px;
     font-size: 1.1rem;
     transition: all 0.8s;
     opacity: 0;
     z-index: 5;
+    font-weight: normal;
 }
 .search input:hover {
     cursor: pointer;
@@ -112,10 +113,6 @@ body {
     background: white;
     border-radius: 0%;
     transform: rotate(-45deg);
-}
-.search input::placeholder {
-    color: black;
-    opacity: 1;
 }
 .search-icon-wrapper {
     border-radius: 50%;
