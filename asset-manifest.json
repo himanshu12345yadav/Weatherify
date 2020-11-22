@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Weatherify/static/css/main.1f0d94c7.chunk.css",
-    "main.js": "/Weatherify/static/js/main.9e165eb8.chunk.js",
-    "main.js.map": "/Weatherify/static/js/main.9e165eb8.chunk.js.map",
+    "main.css": "/Weatherify/static/css/main.4c538956.chunk.css",
+    "main.js": "/Weatherify/static/js/main.fc97ae38.chunk.js",
+    "main.js.map": "/Weatherify/static/js/main.fc97ae38.chunk.js.map",
     "runtime-main.js": "/Weatherify/static/js/runtime-main.9cef0e33.js",
     "runtime-main.js.map": "/Weatherify/static/js/runtime-main.9cef0e33.js.map",
     "static/js/2.5d3021a7.chunk.js": "/Weatherify/static/js/2.5d3021a7.chunk.js",
     "static/js/2.5d3021a7.chunk.js.map": "/Weatherify/static/js/2.5d3021a7.chunk.js.map",
     "index.html": "/Weatherify/index.html",
-    "precache-manifest.d72237b211ab330e57e717009f5a0a38.js": "/Weatherify/precache-manifest.d72237b211ab330e57e717009f5a0a38.js",
+    "precache-manifest.506dce5c1189de7a17dbfd1046620aa2.js": "/Weatherify/precache-manifest.506dce5c1189de7a17dbfd1046620aa2.js",
     "service-worker.js": "/Weatherify/service-worker.js",
-    "static/css/main.1f0d94c7.chunk.css.map": "/Weatherify/static/css/main.1f0d94c7.chunk.css.map",
+    "static/css/main.4c538956.chunk.css.map": "/Weatherify/static/css/main.4c538956.chunk.css.map",
     "static/js/2.5d3021a7.chunk.js.LICENSE.txt": "/Weatherify/static/js/2.5d3021a7.chunk.js.LICENSE.txt",
     "static/media/Main.css": "/Weatherify/static/media/rainy.03f482f3.png",
     "static/media/logo.png": "/Weatherify/static/media/logo.259ad87e.png"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.9cef0e33.js",
     "static/js/2.5d3021a7.chunk.js",
-    "static/css/main.1f0d94c7.chunk.css",
-    "static/js/main.9e165eb8.chunk.js"
+    "static/css/main.4c538956.chunk.css",
+    "static/js/main.fc97ae38.chunk.js"
   ]
 }
