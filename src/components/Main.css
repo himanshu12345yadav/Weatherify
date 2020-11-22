@@ -166,9 +166,7 @@ body {
     padding: 5px;
     font-size: 2rem;
     text-transform: capitalize;
-    display: flex;
-    align-items: center;
-    align-self: flex-start;
+    display: block;
 }
 .weather-details {
     font-weight: 500;

@@ -93,10 +93,14 @@ class Weather extends Component {
                         wind_speed: windSpeed,
                         description: weatherDescription,
                         icon: `${icon}`,
-                        location: `${city}, ${res.sys.country}`,
                         isLoading: false,
                         date: this.setDate(),
                     });
+                    res.sys.country === undefined
+                        ? this.setState({ location: `${city}` })
+                        : this.setState({
+                              location: `${city}, ${res.sys.country}`,
+                          });
                     this.clearInput();
                     this.handleCover();
                     this.setDate();
